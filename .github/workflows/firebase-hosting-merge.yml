@@ -18,5 +18,4 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_DATASCIENCE_SALARY_VB }}
           channelId: live
           projectId: datascience-salary-vb
-        env:
-          FIREBASE_CLI_PATH: front-end
+          entryPoint: front-end
