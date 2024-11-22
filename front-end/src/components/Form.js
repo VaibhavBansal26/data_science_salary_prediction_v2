@@ -35,7 +35,7 @@ const Form = () => {
 
     return (
         <>
-        <h3>Salary Prediction</h3>
+        <h3>Salary Prediction 2025</h3>
         <Box sx={{ display: 'flex', flexWrap: 'wrap',margin:"auto 300px",}}>
           <div>
             <FormControl fullWidth sx={{ m: 1 }} variant="standard">
