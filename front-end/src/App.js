@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage';
 import {Routes, Route } from "react-router-dom";
 import PredictionPage from './pages/PredictionPage';
 import Visualization from './pages/Visualization';
-import { app, analytics } from "./firebaseConfig.js";
+// import { app, analytics } from "./firebaseConfig.js";
 
 function App() {
   return (
