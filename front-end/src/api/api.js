@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "https://54.85.255.1:5000/predict"
+const API_URL = "https://54.85.255.1/predict"
 
 export const getPrediction = async data => {
     try { 
