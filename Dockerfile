@@ -8,8 +8,8 @@ RUN apt-get update && \
     g++ \
     python3-dev \
     openjdk-11-jdk && \
-    apt-get clean
-    # rm -rf /var/lib/apt/lists/*
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN curl -o /opt/airflow/postgresql-42.5.4.jar https://jdbc.postgresql.org/download/postgresql-42.5.4.jar
 ENV CLASSPATH=/opt/airflow/postgresql-42.5.4.jar

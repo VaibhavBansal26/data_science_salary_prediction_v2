@@ -1,8 +1,8 @@
 import axios from "axios";
-const API_URL = "http://127.0.0.1:5001/predict"
+const API_URL = "http://54.85.255.1:5000/predict"
 
 export const getPrediction = async data => {
-    try {
+    try { 
         const response = await axios.post(API_URL,data,{
             headers: {
               "Content-Type": "application/json",
@@ -16,3 +16,21 @@ export const getPrediction = async data => {
     }
     
 }
+
+// export const fetchData = async () => {
+//   try {
+//       const response = await fetch(`${apiUrl}/your-endpoint`, {
+//           method: "GET",
+//       });
+
+//       if (!response.ok) {
+//           throw new Error(`HTTP error! Status: ${response.status}`);
+//       }
+
+//       const data = await response.json();
+//       return data; // Return the fetched data
+//   } catch (error) {
+//       console.error("Error:", error);
+//       return null; // Return null or handle error appropriately
+//   }
+// };

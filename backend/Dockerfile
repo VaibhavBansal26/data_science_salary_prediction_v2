@@ -4,9 +4,9 @@ WORKDIR /app
 
 COPY requirements.txt .
 
-RUN python -m venv /opt/venv
+# RUN python -m venv /opt/venv
 
-RUN pip install -r requirements.txt --no-cache-dir --timeout=2500
+RUN pip install --no-cache-dir -r requirements.txt --timeout=1000
 
 COPY . .
 
