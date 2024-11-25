@@ -1,0 +1,57 @@
+[2024-11-25T20:52:50.209+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: kafka_to_snowflake_pipeline.create_prediction_data_table manual__2024-11-25T20:51:42.977665+00:00 [queued]>
+[2024-11-25T20:52:50.217+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: kafka_to_snowflake_pipeline.create_prediction_data_table manual__2024-11-25T20:51:42.977665+00:00 [queued]>
+[2024-11-25T20:52:50.217+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-11-25T20:52:50.217+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 2
+[2024-11-25T20:52:50.217+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-11-25T20:52:50.230+0000] {taskinstance.py:1304} INFO - Executing <Task(SnowflakeOperator): create_prediction_data_table> on 2024-11-25 20:51:42.977665+00:00
+[2024-11-25T20:52:50.267+0000] {standard_task_runner.py:55} INFO - Started process 1558 to run task
+[2024-11-25T20:52:50.276+0000] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'kafka_to_snowflake_pipeline', 'create_prediction_data_table', 'manual__2024-11-25T20:51:42.977665+00:00', '--job-id', '60', '--raw', '--subdir', 'DAGS_FOLDER/kafka_to_snowflake_etl_dag.py', '--cfg-path', '/tmp/tmp5gu3oga6']
+[2024-11-25T20:52:50.282+0000] {standard_task_runner.py:83} INFO - Job 60: Subtask create_prediction_data_table
+[2024-11-25T20:52:50.378+0000] {task_command.py:389} INFO - Running <TaskInstance: kafka_to_snowflake_pipeline.create_prediction_data_table manual__2024-11-25T20:51:42.977665+00:00 [running]> on host f25f59e56f04
+[2024-11-25T20:52:50.484+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Vaibhav Bansal
+AIRFLOW_CTX_DAG_ID=kafka_to_snowflake_pipeline
+AIRFLOW_CTX_TASK_ID=create_prediction_data_table
+AIRFLOW_CTX_EXECUTION_DATE=2024-11-25T20:51:42.977665+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-11-25T20:51:42.977665+00:00
+[2024-11-25T20:52:50.485+0000] {sql.py:253} INFO - Executing:  
+        CREATE OR REPLACE TABLE prediction_data (
+            work_year INT,
+            experience_level VARCHAR,
+            employment_type VARCHAR,
+            job_title VARCHAR,
+            employee_residence VARCHAR,
+            company_location VARCHAR,
+            predicted_salary FLOAT
+        );
+        
+[2024-11-25T20:52:50.493+0000] {base.py:73} INFO - Using connection ID 'snowflake_default' for task execution.
+[2024-11-25T20:52:50.659+0000] {base.py:73} INFO - Using connection ID 'snowflake_default' for task execution.
+[2024-11-25T20:52:50.661+0000] {connection.py:414} INFO - Snowflake Connector for Python Version: 3.12.3, Python Version: 3.8.15, Platform: Linux-6.6.22-linuxkit-aarch64-with-glibc2.17
+[2024-11-25T20:52:50.662+0000] {connection.py:1197} INFO - Connecting to GLOBAL Snowflake domain
+[2024-11-25T20:52:50.662+0000] {connection.py:1278} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2024-11-25T20:52:50.662+0000] {connection.py:1288} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-11-25T20:52:50.854+0000] {ssl_wrap_socket.py:101} INFO - THIS CONNECTION IS IN INSECURE MODE. IT MEANS THE CERTIFICATE WILL BE VALIDATED BUT THE CERTIFICATE REVOCATION STATUS WILL NOT BE CHECKED.
+[2024-11-25T20:52:51.125+0000] {cursor.py:1166} INFO - Number of results in first chunk: 1
+[2024-11-25T20:52:51.126+0000] {sql.py:364} INFO - Running statement: CREATE OR REPLACE TABLE prediction_data (
+            work_year INT,
+            experience_level VARCHAR,
+            employment_type VARCHAR,
+            job_title VARCHAR,
+            employee_residence VARCHAR,
+            company_location VARCHAR,
+            predicted_salary FLOAT
+        ), parameters: None
+[2024-11-25T20:52:51.369+0000] {cursor.py:1166} INFO - Number of results in first chunk: 1
+[2024-11-25T20:52:51.370+0000] {sql.py:373} INFO - Rows affected: 1
+[2024-11-25T20:52:51.371+0000] {snowflake.py:400} INFO - Rows affected: 1
+[2024-11-25T20:52:51.371+0000] {snowflake.py:401} INFO - Snowflake query id: 01b89d64-0002-35a2-0005-d3920003afb2
+[2024-11-25T20:52:51.474+0000] {cursor.py:1166} INFO - Number of results in first chunk: 1
+[2024-11-25T20:52:51.475+0000] {connection.py:789} INFO - closed
+[2024-11-25T20:52:51.573+0000] {connection.py:795} INFO - No async queries seem to be running, deleting session
+[2024-11-25T20:52:51.681+0000] {taskinstance.py:1322} INFO - Marking task as SUCCESS. dag_id=kafka_to_snowflake_pipeline, task_id=create_prediction_data_table, execution_date=20241125T205142, start_date=20241125T205250, end_date=20241125T205251
+[2024-11-25T20:52:51.740+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2024-11-25T20:52:51.771+0000] {taskinstance.py:2582} INFO - 3 downstream tasks scheduled from follow-on schedule check

@@ -80,11 +80,11 @@ def load_data_using_jdbc():
             col("work_year").cast("long"),
             col("experience_level").cast("string").alias("experience_level"),
             col("employment_type").cast("string").alias("employment_type"),
-            col("job_title").alias("job_title"),
+            col("job_title").cast("string").alias("job_title"),
             col("salary").cast("double"),
-            col("salary_currency").alias("salary_currency"),
+            col("salary_currency").cast("string").alias("salary_currency"),
             col("salary_in_usd").cast("long"),
-            col("employee_residence").alias("employee_residence"),
+            col("employee_residence").cast("string").alias("employee_residence"),
             col("remote_ratio").cast("double"),
             col("company_location").cast("string").alias("company_location"),
             col("company_size").cast("string").alias("company_size")
@@ -92,12 +92,12 @@ def load_data_using_jdbc():
 
         print("Checking for null values in all data...")
         flat_spark_df = flat_spark_df.dropna()
-        
+        # print(flat_spark_df.head())
         # Save All Data as Parquet
         all_data_path = "/opt/airflow/shared/all_data.parquet"
         flat_spark_df.write.mode("overwrite").parquet(all_data_path)
         print(f"All data saved to {all_data_path}")
-
+    
         # Load Prediction Data
         prediction_query = "SELECT * FROM new_predictions;"
         cursor.execute(prediction_query)

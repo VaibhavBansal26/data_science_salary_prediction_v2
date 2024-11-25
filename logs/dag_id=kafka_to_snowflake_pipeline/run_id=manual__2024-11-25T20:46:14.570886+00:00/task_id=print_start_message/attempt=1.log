@@ -1,0 +1,24 @@
+[2024-11-25T20:46:22.964+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: kafka_to_snowflake_pipeline.print_start_message manual__2024-11-25T20:46:14.570886+00:00 [queued]>
+[2024-11-25T20:46:22.973+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: kafka_to_snowflake_pipeline.print_start_message manual__2024-11-25T20:46:14.570886+00:00 [queued]>
+[2024-11-25T20:46:22.974+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-11-25T20:46:22.974+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 2
+[2024-11-25T20:46:22.974+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-11-25T20:46:22.982+0000] {taskinstance.py:1304} INFO - Executing <Task(_PythonDecoratedOperator): print_start_message> on 2024-11-25 20:46:14.570886+00:00
+[2024-11-25T20:46:22.992+0000] {standard_task_runner.py:55} INFO - Started process 844 to run task
+[2024-11-25T20:46:22.995+0000] {standard_task_runner.py:82} INFO - Running: ['airflow', 'tasks', 'run', 'kafka_to_snowflake_pipeline', 'print_start_message', 'manual__2024-11-25T20:46:14.570886+00:00', '--job-id', '41', '--raw', '--subdir', 'DAGS_FOLDER/kafka_to_snowflake_etl_dag.py', '--cfg-path', '/tmp/tmpfk4r3toy']
+[2024-11-25T20:46:23.000+0000] {standard_task_runner.py:83} INFO - Job 41: Subtask print_start_message
+[2024-11-25T20:46:23.206+0000] {task_command.py:389} INFO - Running <TaskInstance: kafka_to_snowflake_pipeline.print_start_message manual__2024-11-25T20:46:14.570886+00:00 [running]> on host f25f59e56f04
+[2024-11-25T20:46:23.319+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Vaibhav Bansal
+AIRFLOW_CTX_DAG_ID=kafka_to_snowflake_pipeline
+AIRFLOW_CTX_TASK_ID=print_start_message
+AIRFLOW_CTX_EXECUTION_DATE=2024-11-25T20:46:14.570886+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-11-25T20:46:14.570886+00:00
+[2024-11-25T20:46:23.323+0000] {logging_mixin.py:137} INFO - Starting the Airflow DAG: kafka_to_snowflake_pipeline
+[2024-11-25T20:46:23.324+0000] {python.py:177} INFO - Done. Returned value was: None
+[2024-11-25T20:46:23.333+0000] {taskinstance.py:1322} INFO - Marking task as SUCCESS. dag_id=kafka_to_snowflake_pipeline, task_id=print_start_message, execution_date=20241125T204614, start_date=20241125T204622, end_date=20241125T204623
+[2024-11-25T20:46:23.385+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2024-11-25T20:46:23.408+0000] {taskinstance.py:2582} INFO - 1 downstream tasks scheduled from follow-on schedule check
