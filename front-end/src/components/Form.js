@@ -7,20 +7,41 @@ import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { getPrediction } from '../api/api';
+import NativeSelect from '@mui/material/NativeSelect';
+import { jobTitleOptions } from './keys';
+import { useWindowSize } from 'react-use';
+import Confetti from "react-confetti";
 
 
 const Form = () => {
-    const [experience, setExperience] = useState("");
-    const [prediction ,setPrediction] = useState(0)
-    const [salary,setSalary] = useState(0)
-    const [workYear,setWorkYear] = useState("")
-    const [experienceType,setExperienceType] = useState("")
-    const [employeeResidence,setEmployeeResidence] = useState("")
-    const [remoteRatio,setRemoteRatio] = useState(0)
-    const [companyLocation,setCompanyLocation] = useState("")
-    const [companySize,setCompanySize] = useState("")
-    const [jobTitle,setJobTitle] = useState("")
+  const employeeResidenceOptions = ['ES', 'US', 'CA', 'DE', 'GB', 'NG', 'IN', 'HK', 'PT', 'NL', 'CH', 'CF', 'FR', 'AU', 'FI', 'UA', 'IE', 'IL', 'GH', 'AT', 'CO', 'SG', 'SE', 'SI', 'MX', 'UZ', 'BR', 'TH', 'HR', 'PL', 'KW', 'VN', 'CY', 'AR', 'AM', 'BA', 'KE', 'GR', 'MK', 'LV', 'RO', 'PK', 'IT', 'MA', 'LT', 'BE', 'AS', 'IR', 'HU', 'SK', 'CN', 'CZ', 'CR', 'TR', 'CL', 'PR', 'DK', 'BO', 'PH', 'DO', 'EG', 'ID', 'AE', 'MY', 'JP', 'EE', 'HN', 'TN', 'RU', 'DZ', 'IQ', 'BG', 'JE', 'RS', 'NZ', 'MD', 'LU', 'MT'];
+  const experienceLevelOptions = ['Senior', 'Mid', 'Entry', 'Executive'];
+  const remoteRatioOptions = [100, 50, 0];
+  const companySizeOptions = ['L', 'S', 'M'];
+  const experienceTypeOptions = ['Full-time', 'Part-time', 'Contract', 'Freelance'];
+  const jobTitleAllOptions = [...jobTitleOptions]
+  
 
+    const [experience, setExperience] = useState("Senior");
+    const [prediction ,setPrediction] = useState('')
+    const [salary,setSalary] = useState(0)
+    const [workYear,setWorkYear] = useState("2024")
+    const [experienceType,setExperienceType] = useState("Full-time")
+    const [employeeResidence,setEmployeeResidence] = useState("US")
+    const [remoteRatio,setRemoteRatio] = useState(0)
+    const [companyLocation,setCompanyLocation] = useState("US")
+    const [companySize,setCompanySize] = useState("M")
+    const [jobTitle,setJobTitle] = useState("ML Engineer")
+    const { width, height } = useWindowSize();
+    const [showConfetti, setShowConfetti] = useState(false);
+    
+
+    const formatToDollars = (value) => {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      }).format(value);
+    };
 
     const handlePredict = async() => {
         const response = await getPrediction({experience_level:experience,
@@ -30,13 +51,18 @@ const Form = () => {
           company_size:companySize,
           job_title:jobTitle
         })
-        setPrediction(response.data.predicted_salary)
+        const tmp = formatToDollars(response.data.predicted_salary).toString()
+        setPrediction(tmp)
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 10000);
+
     }
 
     return (
-        <>
-        <h3>Salary Prediction 2025</h3>
-        <Box sx={{ display: 'flex', flexWrap: 'wrap',margin:"auto 300px",}}>
+      <>
+      {showConfetti && <Confetti width={width} height={height} />}
+      <div style={{display:'flex',flexDirection:'row',flex:1}}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap',margin:"auto 100px",flex:0.5}}>
           <div>
             <FormControl fullWidth sx={{ m: 1 }} variant="standard">
               <InputLabel htmlFor="standard-adornment-amount">Work Year</InputLabel>
@@ -56,77 +82,137 @@ const Form = () => {
                 startAdornment={<InputAdornment position="start">$</InputAdornment>}
               />
             </FormControl>
-            <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-              <InputLabel htmlFor="standard-adornment-amount">Experience Level</InputLabel>
-              <Input
+            <FormControl fullWidth sx={{ m: 1 }}>
+              <InputLabel variant="standard" htmlFor="uncontrolled-native">
+              Experience Level
+              </InputLabel>
+              <NativeSelect
                 value={experience}
-                placeholder='Years of Experience'
                 onChange={e => setExperience(e.target.value)}
-                id="standard-adornment-amount"
-                startAdornment={<InputAdornment position="start"></InputAdornment>}
-              />
+                defaultValue={30}
+              >
+                <option value=""></option>
+                  {experienceLevelOptions.map((res) => (
+                    <option key={res} value={res}>
+                      {res}
+                    </option>
+                  ))}
+              </NativeSelect>
             </FormControl>
-            <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-              <InputLabel htmlFor="standard-adornment-amount">Job Title</InputLabel>
-              <Input
+            <FormControl fullWidth sx={{ m: 1 }}>
+              <InputLabel variant="standard" htmlFor="uncontrolled-native">
+              Job Title
+              </InputLabel>
+              <NativeSelect
                 value={jobTitle}
                 onChange={e => setJobTitle(e.target.value)}
-                id="standard-adornment-amount"
-                startAdornment={<InputAdornment position="start"></InputAdornment>}
-              />
+                defaultValue={30}
+              >
+                <option value=""></option>
+                  {jobTitleAllOptions.map((res) => (
+                    <option key={res} value={res}>
+                      {res}
+                    </option>
+                  ))}
+              </NativeSelect>
             </FormControl>
-            <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-              <InputLabel htmlFor="standard-adornment-amount">Experience Type</InputLabel>
-              <Input
-                onChange={e => setExperienceType(e.target.value)}
+            <FormControl fullWidth sx={{ m: 1 }}>
+              <InputLabel variant="standard" htmlFor="uncontrolled-native">
+              Experience Type
+              </InputLabel>
+              <NativeSelect
                 value={experienceType}
-                id="standard-adornment-amount"
-                startAdornment={<InputAdornment position="start"></InputAdornment>}
-              />
+                onChange={e => setExperienceType(e.target.value)}
+              >
+                <option value=""></option>
+                  {experienceTypeOptions.map((res) => (
+                    <option key={res} value={res}>
+                      {res}
+                    </option>
+                  ))}
+              </NativeSelect>
             </FormControl>
-            <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-              <InputLabel htmlFor="standard-adornment-amount">Employee Residence</InputLabel>
-              <Input
-                onChange={e => setEmployeeResidence(e.target.value)}
+            <FormControl fullWidth sx={{ m: 1 }}>
+              <InputLabel variant="standard" htmlFor="uncontrolled-native">
+              Employee Residence
+              </InputLabel>
+              <NativeSelect
                 value={employeeResidence}
-                id="standard-adornment-amount"
-                startAdornment={<InputAdornment position="start"></InputAdornment>}
-              />
+                onChange={e => setEmployeeResidence(e.target.value)}
+              >
+                <option value=""></option>
+                  {employeeResidenceOptions.map((res) => (
+                    <option key={res} value={res}>
+                      {res}
+                    </option>
+                  ))}
+              </NativeSelect>
             </FormControl>
-            <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-              <InputLabel htmlFor="standard-adornment-amount">Remote Ratio</InputLabel>
-              <Input
-                onChange={e => setRemoteRatio(e.target.value)}
+            <FormControl fullWidth sx={{ m: 1 }}>
+              <InputLabel variant="standard" htmlFor="uncontrolled-native">
+              Remote Ratio
+              </InputLabel>
+              <NativeSelect
                 value={remoteRatio}
-                id="standard-adornment-amount"
-                startAdornment={<InputAdornment position="start"></InputAdornment>}
-              />
+                onChange={e => setRemoteRatio(e.target.value)}
+              >
+                <option value=""></option>
+                  {remoteRatioOptions.map((res) => (
+                    <option key={res} value={res}>
+                      {res}
+                    </option>
+                  ))}
+              </NativeSelect>
             </FormControl>
-            <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-              <InputLabel htmlFor="standard-adornment-amount">Company Location</InputLabel>
-              <Input
-                onChange={e => setCompanyLocation(e.target.value)}
+            <FormControl fullWidth sx={{ m: 1 }}>
+              <InputLabel variant="standard" htmlFor="uncontrolled-native">
+              Company Location
+              </InputLabel>
+              <NativeSelect
                 value={companyLocation}
-                id="standard-adornment-amount"
-                startAdornment={<InputAdornment position="start"></InputAdornment>}
-              />
+                onChange={e => setCompanyLocation(e.target.value)}
+  
+              >
+                <option value=""></option>
+                  {employeeResidenceOptions.map((res) => (
+                    <option key={res} value={res}>
+                      {res}
+                    </option>
+                  ))}
+              </NativeSelect>
             </FormControl>
-            <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-              <InputLabel htmlFor="standard-adornment-amount">Company Size</InputLabel>
-              <Input
-                onChange={e => setCompanySize(e.target.value)}
+            <FormControl fullWidth sx={{ m: 1 }}>
+              <InputLabel variant="standard" htmlFor="uncontrolled-native">
+              Company Size
+              </InputLabel>
+              <NativeSelect
                 value={companySize}
-                id="standard-adornment-amount"
-                startAdornment={<InputAdornment position="start"></InputAdornment>}
-              />
+                onChange={e => setCompanySize(e.target.value)}
+              >
+                <option value=""></option>
+                  {companySizeOptions.map((res) => (
+                    <option key={res} value={res}>
+                      {res}
+                    </option>
+                  ))}
+              </NativeSelect>
             </FormControl>
           </div>
           <FormControl fullWidth sx={{ m: 1 }} variant="standard">
              <Button variant="outlined" onClick={handlePredict}>Predict</Button>
-             <h3>{prediction}</h3>
-            </FormControl>
+          </FormControl>
         </Box>
-        </>
+        <div style={{flex:0.3, minWidth:300}}>
+          {prediction  ? 
+          <>
+          
+          <h3>Salary Prediction: {prediction}</h3>
+
+          </> : ''}
+        </div>
+        </div>
+      </>
+       
       );
      
 }

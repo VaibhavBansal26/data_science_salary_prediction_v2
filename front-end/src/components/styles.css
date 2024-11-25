@@ -1,24 +1,27 @@
 .header {
     display: flex;
-    background-color: #9b59b6;
+    background-color: #1abc9c;
     width: 100%;
     height: 60px;
-    border-bottom: 8px solid #8e44ad;
+    border-bottom: 8px solid #16a085;
     top:0px;
     flex-shrink: 0;
     position: sticky;
-    z-index: 1000;
+    /* z-index: 1000; */
 }
 
 .footer {
-    display: flex;
+    /* display: flex; */
     background-color: black;
     width: 100%;
-    height: 20px;
+    /* height: 20px; */
     bottom:0px;
-    /* position: absolute; */
+    /* position: sticky; */
+    position: fixed;
     flex-shrink: 0;
     color: white;
+    margin: 0;
+    padding: 0;
 }
 
 .header_sub {
