@@ -1,13 +1,11 @@
 import React from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import SystemDesign from '../components/diagram4.png'
 
 const About = () => {
   return (
-    <>
-    <Header/>
-    <Footer/>
-    </>
+    <div >
+    <img src={SystemDesign} alt=""/>
+    </div>
   )
 }
 

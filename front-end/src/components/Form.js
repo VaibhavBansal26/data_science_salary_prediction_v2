@@ -11,6 +11,7 @@ import NativeSelect from '@mui/material/NativeSelect';
 import { jobTitleOptions } from './keys';
 import { useWindowSize } from 'react-use';
 import Confetti from "react-confetti";
+import Suny from './images.jpeg';
 
 
 const Form = () => {
