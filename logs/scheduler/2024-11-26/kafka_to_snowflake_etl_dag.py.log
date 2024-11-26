@@ -1,0 +1,36 @@
+[2024-11-26T00:00:01.318+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:01.316+0000] {settings.py:266} DEBUG - Setting up DB connection pool (PID 5751)
+[2024-11-26T00:00:01.320+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:01.320+0000] {settings.py:371} DEBUG - settings.prepare_engine_args(): Using pool settings. pool_size=5, max_overflow=10, pool_recycle=1800, pid=5751
+[2024-11-26T00:00:01.334+0000] {processor.py:153} INFO - Started process (PID=5751) to work on /opt/airflow/dags/kafka_to_snowflake_etl_dag.py
+[2024-11-26T00:00:01.337+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/kafka_to_snowflake_etl_dag.py for tasks to queue
+[2024-11-26T00:00:01.340+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:01.340+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_to_snowflake_etl_dag.py
+[2024-11-26T00:00:01.359+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:01.358+0000] {dagbag.py:323} DEBUG - Importing /opt/airflow/dags/kafka_to_snowflake_etl_dag.py
+[2024-11-26T00:00:02.793+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:02.788+0000] {ssl_wrap_socket.py:44} DEBUG - Injecting ssl_wrap_socket_with_ocsp
+[2024-11-26T00:00:02.798+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:02.795+0000] {_auth.py:91} DEBUG - cache directory: /home/airflow/.cache/snowflake
+[2024-11-26T00:00:03.318+0000] {logging_mixin.py:137} WARNING - /home/airflow/.local/lib/python3.8/site-packages/airflow/models/dag.py:3492 RemovedInAirflow3Warning: Param `schedule_interval` is deprecated and will be removed in a future release. Please use `schedule` instead.
+[2024-11-26T00:00:03.337+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:03.336+0000] {dagbag.py:503} DEBUG - Loaded DAG <DAG: kafka_to_snowflake_pipeline>
+[2024-11-26T00:00:03.337+0000] {processor.py:753} INFO - DAG(s) dict_keys(['kafka_to_snowflake_pipeline']) retrieved from /opt/airflow/dags/kafka_to_snowflake_etl_dag.py
+[2024-11-26T00:00:03.352+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:03.352+0000] {dagbag.py:648} DEBUG - Running dagbag.sync_to_db with retries. Try 1 of 3
+[2024-11-26T00:00:03.353+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:03.353+0000] {dagbag.py:653} DEBUG - Calling the DAG.bulk_sync_to_db method
+[2024-11-26T00:00:03.386+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:03.386+0000] {serialized_dag.py:156} DEBUG - Checking if DAG (kafka_to_snowflake_pipeline) changed
+[2024-11-26T00:00:03.405+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:03.405+0000] {serialized_dag.py:167} DEBUG - Serialized DAG (kafka_to_snowflake_pipeline) is unchanged. Skipping writing to DB
+[2024-11-26T00:00:03.406+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:03.406+0000] {dag.py:2676} INFO - Sync 1 DAGs
+[2024-11-26T00:00:03.436+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:03.436+0000] {dag.py:3423} INFO - Setting next_dagrun for kafka_to_snowflake_pipeline to 2024-11-25T15:54:42.893219+00:00, run_after=2024-11-26T15:54:42.893219+00:00
+[2024-11-26T00:00:03.456+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/kafka_to_snowflake_etl_dag.py took 2.140 seconds
+[2024-11-26T00:00:34.141+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:34.141+0000] {settings.py:266} DEBUG - Setting up DB connection pool (PID 5757)
+[2024-11-26T00:00:34.142+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:34.142+0000] {settings.py:371} DEBUG - settings.prepare_engine_args(): Using pool settings. pool_size=5, max_overflow=10, pool_recycle=1800, pid=5757
+[2024-11-26T00:00:34.153+0000] {processor.py:153} INFO - Started process (PID=5757) to work on /opt/airflow/dags/kafka_to_snowflake_etl_dag.py
+[2024-11-26T00:00:34.155+0000] {processor.py:743} INFO - Processing file /opt/airflow/dags/kafka_to_snowflake_etl_dag.py for tasks to queue
+[2024-11-26T00:00:34.157+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:34.156+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/kafka_to_snowflake_etl_dag.py
+[2024-11-26T00:00:34.160+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:34.160+0000] {dagbag.py:323} DEBUG - Importing /opt/airflow/dags/kafka_to_snowflake_etl_dag.py
+[2024-11-26T00:00:36.209+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:36.209+0000] {ssl_wrap_socket.py:44} DEBUG - Injecting ssl_wrap_socket_with_ocsp
+[2024-11-26T00:00:36.210+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:36.210+0000] {_auth.py:91} DEBUG - cache directory: /home/airflow/.cache/snowflake
+[2024-11-26T00:00:36.458+0000] {logging_mixin.py:137} WARNING - /home/airflow/.local/lib/python3.8/site-packages/airflow/models/dag.py:3492 RemovedInAirflow3Warning: Param `schedule_interval` is deprecated and will be removed in a future release. Please use `schedule` instead.
+[2024-11-26T00:00:36.496+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:36.494+0000] {dagbag.py:503} DEBUG - Loaded DAG <DAG: kafka_to_snowflake_pipeline>
+[2024-11-26T00:00:36.497+0000] {processor.py:753} INFO - DAG(s) dict_keys(['kafka_to_snowflake_pipeline']) retrieved from /opt/airflow/dags/kafka_to_snowflake_etl_dag.py
+[2024-11-26T00:00:36.517+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:36.517+0000] {dagbag.py:648} DEBUG - Running dagbag.sync_to_db with retries. Try 1 of 3
+[2024-11-26T00:00:36.521+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:36.520+0000] {dagbag.py:653} DEBUG - Calling the DAG.bulk_sync_to_db method
+[2024-11-26T00:00:36.622+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:36.622+0000] {serialized_dag.py:156} DEBUG - Checking if DAG (kafka_to_snowflake_pipeline) changed
+[2024-11-26T00:00:36.651+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:36.651+0000] {serialized_dag.py:167} DEBUG - Serialized DAG (kafka_to_snowflake_pipeline) is unchanged. Skipping writing to DB
+[2024-11-26T00:00:36.652+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:36.651+0000] {dag.py:2676} INFO - Sync 1 DAGs
+[2024-11-26T00:00:36.702+0000] {logging_mixin.py:137} INFO - [2024-11-26T00:00:36.701+0000] {dag.py:3423} INFO - Setting next_dagrun for kafka_to_snowflake_pipeline to 2024-11-25T15:54:42.893219+00:00, run_after=2024-11-26T15:54:42.893219+00:00
+[2024-11-26T00:00:36.727+0000] {processor.py:175} INFO - Processing /opt/airflow/dags/kafka_to_snowflake_etl_dag.py took 2.587 seconds
