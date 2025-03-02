@@ -6,24 +6,24 @@ https://datascience-salary-vb.web.app/
 
 Tech Stack
 ================
-Apache Spark
-Kafka
-Postgresql
-Python
-Snowflake
-Firebase
-Linear Regression
-Machine Learning
-Redis
-S3
-Airflow
-ZOOKEEPER
-Flask
-React JS
-AWS EC2
-Github CI/CD
-Docker
-Docker Compose
+1. Apache Spark
+2. Kafka
+3. Postgresql
+4. Python
+5. Snowflake
+6. Firebase
+7. Linear Regression
+8. Machine Learning
+9. Redis
+10. S3
+11. Airflow
+12. ZOOKEEPER
+13. Flask
+14. React JS
+15. AWS EC2
+16. Github CI/CD
+17. Docker
+18. Docker Compose
 
 
 
@@ -42,41 +42,54 @@ Demo Video
 KEY Commands:
 ================
 sudo apt-get update
+
 sudo apt-get install -y git
 
 # Update packages
+
 sudo apt-get update
 
 # Install Docker
+
 sudo apt-get install -y docker.io
+
 sudo systemctl start docker
+
 sudo systemctl enable docker
 
 # Install Docker Compose (if not installed via apt)
+
 sudo apt-get install -y docker-compose
 
 
 ls -ld ./logs
+
 sudo chown -R 50000:50000 ./logs
+
 sudo chmod -R 777 ./logs
 
 
 SSL
 
 sudo apt-get update
+
 sudo apt-get install nginx
 
 sudo apt-get install certbot python3-certbot-nginx
+
 sudo certbot --nginx -d yourdomain.com
 
 sudo certbot renew
+
 server {
+
     listen 80;
     server_name yourdomain.com;
     return 301 https://$host$request_uri;
 }
 
 server {
+
     listen 443 ssl;
     server_name yourdomain.com;
 
@@ -95,6 +108,7 @@ server {
 CASE NO Domain:
 
 # Generate Self-Signed Certificate
+
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
   -keyout /etc/ssl/private/selfsigned.key \
   -out /etc/ssl/certs/selfsigned.crt
@@ -103,14 +117,18 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 sudo nano /etc/nginx/sites-available/flask_api
 
 # Redirect HTTP traffic to HTTPS
+
 server {
+
     listen 80;
     server_name 3.90.178.242;  # Replace with your IP or domain if you have one
     return 301 https://$host$request_uri;
 }
 
 # Serve the Flask API over HTTPS
+
 server {
+
     listen 443 ssl;
     server_name your_server;
 
@@ -134,7 +152,9 @@ server {
 
 
 sudo ln -s /etc/nginx/sites-available/flask_api /etc/nginx/sites-enabled/
+
 sudo rm /etc/nginx/sites-enabled/default
 
 sudo nginx -t
+
 sudo systemctl reload nginx
