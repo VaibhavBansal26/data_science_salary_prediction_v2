@@ -1,2 +1,15 @@
 # data_science_salary_prediction_v2
-front-end
+
+
+https://datascience-salary-vb.web.app/
+
+
+System Architecture
+
+![Alternative Text](https://datascience-salary-vb.web.app/static/media/diagram4.b99fdf0c9c41947d165a.png "Optional Title")
+
+
+
+Demo Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=1Ca0Y4s37ls&t=319s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
