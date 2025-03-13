@@ -6,6 +6,7 @@ import PredictionPage from './pages/PredictionPage';
 import Visualization from './pages/Visualization';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ProjectDemo from './pages/ProjectDemo';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<HomePage />}/>
         <Route path="about" element={<About />}/>
         <Route path="prediction" element={<PredictionPage />}/>
+        <Route path="project" element={<ProjectDemo />}/>
         <Route path="visualization" element={<Visualization />}/>
       </Routes>
       <Footer/>
