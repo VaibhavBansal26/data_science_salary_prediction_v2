@@ -31,7 +31,7 @@ Tech Stack
 17. Docker
 18. Docker Compose
 
-
+Security Groups Open Ports : 7077, 8080, 8081, 9092, 5432, 6379, 80, 22, 443, 465, 5001
 
 System Architecture
 ================
