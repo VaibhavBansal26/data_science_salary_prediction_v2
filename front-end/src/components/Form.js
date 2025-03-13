@@ -212,7 +212,7 @@ const Form = () => {
 
           </> : <div>
             <h3>Instructions</h3>
-            <div style={{color:"red",padding:'5px'}}>Please click on this <Link style={{cursor:"pointer"}} to="https://54.85.255.1/predict">Backend Server</Link> link to grant access for API requests. This step is necessary due to the self-signed SSL certificate on the AWS EC2 domain. After granting access, you can fully enjoy the application.</div></div>}
+            <div style={{color:"red",padding:'5px'}}>Please click on this <Link style={{cursor:"pointer"}} to="https://3.90.178.242/predict">Backend Server</Link> link to grant access for API requests. This step is necessary due to the self-signed SSL certificate on the AWS EC2 domain. After granting access, you can fully enjoy the application.</div></div>}
         </div>
         </div>
       </>
