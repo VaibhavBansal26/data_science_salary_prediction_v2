@@ -205,6 +205,9 @@ sudo usermod -aG docker $USER # Docker permissions issue fix
 ```
 
 # Cron Job
+
+```
  crontab -e
  1: /bin/nano
  0 3 * * 0 /usr/bin/truncate -s 0 /home/ubuntu/docker_maintenance.log && cd /home/ubuntu/data_science_salary_prediction_v2 && /usr/bin/docker-compose down -v && /usr/bin/docker system prune -af && /usr/bin/docker-compose up -d >> /home/ubuntu/docker_maintenance.log 2>&1
+```
