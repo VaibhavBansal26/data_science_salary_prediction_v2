@@ -1,4 +1,4 @@
-# data_science_salary_prediction_v2
+# Data Science Salary Prediction 
 
 Front End Deployment On Firebase
 ==============================
@@ -30,6 +30,7 @@ Tech Stack
 16. Github CI/CD
 17. Docker
 18. Docker Compose
+19. mlflow
 
 Security Groups Open Ports : 7077, 8080, 8081, 9092, 5432, 6379, 80, 22, 443, 465, 5001
 
