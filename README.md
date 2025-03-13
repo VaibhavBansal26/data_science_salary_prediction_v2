@@ -164,3 +164,47 @@ sudo rm /etc/nginx/sites-enabled/default
 sudo nginx -t
 
 sudo systemctl reload nginx
+
+
+====================
+Verify Docker Daemon Is Running
+
+```
+sudo systemctl status docker
+sudo systemctl start docker
+```
+ Test with Elevated Permissions
+
+ ```
+ sudo docker ps
+ ```
+
+Check Docker Socket Permissions
+
+```
+ls -l /var/run/docker.sock
+
+```
+srw-rw---- 1 root docker 0 ... /var/run/docker.sock. This means that any user in the docker group can access it.
+
+Add Your User to the Docker Group
+
+```
+sudo usermod -aG docker $USER
+```
+
+Docker Cleanup
+
+```
+df -h
+sudo apt-get clean
+sudo du -sh /var/log/*
+sudo truncate -s 0 /var/log/your-large-log.log
+sudo docker system prune -a
+sudo usermod -aG docker $USER # Docker permissions issue fix
+```
+
+# Cron Job
+ crontab -e
+ 1: /bin/nano
+ 0 3 * * 0 /usr/bin/truncate -s 0 /home/ubuntu/docker_maintenance.log && cd /home/ubuntu/data_science_salary_prediction_v2 && /usr/bin/docker-compose down -v && /usr/bin/docker system prune -af && /usr/bin/docker-compose up -d >> /home/ubuntu/docker_maintenance.log 2>&1
